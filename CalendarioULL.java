@@ -12,14 +12,12 @@ public class CalendarioULL extends JFrame {
     private ArrayList<Horario> horarios = new ArrayList<>();
 
     public CalendarioULL() {
-        // Configuración de la ventana principal
-        setTitle("BIENVENIDO/A AL SISTEMA DE GENERACIÓN DE CALENDARIOS DE LA ULL");
-        setSize(500, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    
-	// Desactivar la capacidad de redimensionamiento
-        // this.setResizable(false);
-	    
+        // Configuración de la ventana principal de login
+    	JFrame ventanaLogin = new JFrame();
+    	ventanaLogin.setTitle("BIENVENIDO/A AL SISTEMA DE GENERACIÓN DE CALENDARIOS DE LA ULL");
+    	ventanaLogin.setSize(500, 300);
+    	ventanaLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         // Creación de los componentes
         JLabel usuarioLabel = new JLabel("Usuario:");
         JTextField usuarioTextField = new JTextField();
@@ -55,10 +53,10 @@ public class CalendarioULL extends JFrame {
         );
 
         // Agregamos el panel a la ventana
-        add(panel);
+        ventanaLogin.add(panel);
 
         // Mostramos la ventana
-        setVisible(true);
+        ventanaLogin.setVisible(true);
 
         // Acción del botón ingresar
         ingresarButton.addActionListener(new ActionListener() {
@@ -69,7 +67,7 @@ public class CalendarioULL extends JFrame {
 
                 if (usuarioIngresado.equals(usuario) && contrasenaIngresada.equals(contrasena)) {
                     // Cerramos la ventana principal
-                    dispose();
+                    ventanaLogin.dispose();
 
                     // Mostramos el menú
                     mostrarMenu();
